@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <!--  数据库名称  -->
+    <dbname value="BookStore" />
+
+    <!--  版本号  -->
+    <version value="1" />
+
+    <!--  表格  -->
+    <list>
+
+    <!-- JavaBean -->
+        <mapping class="com.example.androidlearning.LitePal.Book"/>
+        <mapping class="com.example.androidlearning.LitePal.Category"/>
+
+    </list>
+
+
+</litepal>
