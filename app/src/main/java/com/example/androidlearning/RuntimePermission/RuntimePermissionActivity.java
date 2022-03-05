@@ -45,7 +45,9 @@ public class RuntimePermissionActivity extends AppCompatActivity {
                             // 第一个参数：Activity 实例，
                             // 第二个参数：一个包含了权限名的 String[] 数组，
                             // 第三个参数：请求码，唯一即可。
-                            RuntimePermissionActivity.this, new String[]{Manifest.permission.CALL_PHONE
+                            RuntimePermissionActivity.this,
+
+                            new String[]{ Manifest.permission.CALL_PHONE
 
                             }, 1);
                 }else {
@@ -55,6 +57,29 @@ public class RuntimePermissionActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    @Override
+    // 接收 用户选择的权限，回收的结果 会放到 grantResults 参数当中。
+    // 如果用户选择同意的话，那就直接打电话。不同意的话就放弃操作
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+
+        switch (requestCode){
+            case 1:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    call();
+
+                }else {
+                    Toast.makeText(this, "You denied the permission",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+                break;
+            default:
+        }
 
     }
 
@@ -70,21 +95,4 @@ public class RuntimePermissionActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    // 接收用户选择的权限，回收的结果会放到 grantResults 参数当中。
-    // 如果用户选择同意的话，那就直接打电话。不同意的话就放弃操作
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        switch (requestCode){
-            case 1:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    call();
-                }else {
-                    Toast.makeText(this, "You denied the permission", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            default:
-        }
-
-    }
 }

@@ -58,8 +58,9 @@ public class ContactsActivity extends AppCompatActivity {
     private void readContact() {
         Cursor cursor = null;
         try {
-            // 查询 手机联系人 的数据
-            cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,null,null,null);
+            // 查询 手机联系人 的数据（根据他的 uri 地址）
+            cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null,null,null,null);
 
             // 如果查询到了数据，就开始读取
             if (cursor != null){
@@ -107,7 +108,6 @@ public class ContactsActivity extends AppCompatActivity {
 
             // 指定到上面那个 希望获取用户联系人列表 的权限申请
             case 1:
-
                 // 如果用户 点击了同意 的话
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     readContact();
