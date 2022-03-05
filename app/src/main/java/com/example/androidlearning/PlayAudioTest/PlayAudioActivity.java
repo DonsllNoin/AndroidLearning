@@ -66,7 +66,8 @@ public class PlayAudioActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
 
         switch (requestCode){
             case 1:
@@ -87,28 +88,24 @@ public class PlayAudioActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
             case R.id.play:
                 if (!mediaPlayer.isPlaying()){
                     // 如果还没播放，就先开始播放
                     mediaPlayer.start();
                 }
-
                 break;
 
             case R.id.pause:
                 if (mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
                 }
-
                 break;
 
             case R.id.stop:
                 if (mediaPlayer.isPlaying()){
                     mediaPlayer.stop();
                 }
-
                 break;
 
             default:

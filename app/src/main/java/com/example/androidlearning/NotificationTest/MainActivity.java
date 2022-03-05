@@ -44,35 +44,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.send_notice:
 
-                // 添加页面跳转
+                // 添加页面跳转（ 点击通知后跳转 ）
                 Intent[] intents = new Intent[]{new Intent(this, NotificationActivity.class)};
                 PendingIntent pi = PendingIntent.getActivities(this, 0, intents, 0);
 
-
+                // 创建一个 通知助手 来管理通知（ 相当于 交警 ）
                 NotificationManager manager = (NotificationManager) getSystemService
                         (NOTIFICATION_SERVICE);
 
                 String id = "test";
 
-                String desc = "123";
+                String name = "123";
 
                 int importance = NotificationManager.IMPORTANCE_HIGH;
 
-                NotificationChannel mChannel = new NotificationChannel(id, "123", importance);
+                // 创建 通知通道，专门为通知开的一条路（ 相当于 应急车道 ）
+                NotificationChannel mChannel = new NotificationChannel(id, name, importance);
                 manager.createNotificationChannel(mChannel);
 
+                // 创建通知 （ 相当于 警车 ）
                 Notification notification = new Notification.Builder(this, id)
                         .setContentTitle("This is content title")
                         .setContentText("这里设置不了长文字就离谱")
                         .setWhen(System.currentTimeMillis())
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+
                         // 添加 点击后就跳转
                         .setContentIntent(pi)
                         // 自动取消
                         .setAutoCancel(true)
                         // 设置声音
 //                        .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Luna.ogg")))
+
                         // 设置震动 ( 静止时长，震动时长，静止时长，震动时长 )（还要先声明权限）
                         .setVibrate(new long[]{0, 1000, 1000, 1000})
                         // 设置 LED 灯闪烁

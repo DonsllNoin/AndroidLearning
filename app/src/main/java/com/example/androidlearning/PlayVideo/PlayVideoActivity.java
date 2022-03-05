@@ -52,7 +52,8 @@ public class PlayVideoActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
 
         switch (requestCode){
             case 1:
@@ -81,7 +82,6 @@ public class PlayVideoActivity extends AppCompatActivity implements View.OnClick
                 if (!videoView.isPlaying()){
                     videoView.start();
                 }
-
                 break;
 
                 // 暂停播放
@@ -89,7 +89,6 @@ public class PlayVideoActivity extends AppCompatActivity implements View.OnClick
                 if (videoView.isPlaying()){
                     videoView.pause();
                 }
-
                 break;
 
                 // 重新播放
@@ -97,7 +96,6 @@ public class PlayVideoActivity extends AppCompatActivity implements View.OnClick
                 if (videoView.isPlaying()){
                     videoView.resume();
                 }
-
                 break;
         }
 

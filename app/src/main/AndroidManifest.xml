@@ -18,20 +18,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLearning"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Network.NetworkActivity">
+        <activity android:name=".CameraAlbumTest.UseAlbumActivity"></activity>
+        <activity android:name=".CameraAlbumTest.UseCameraActivity" />
+        <activity android:name=".Network.NetworkActivity" />
+        <activity android:name=".WebView.WebViewActivity" />
+        <activity android:name=".PlayVideo.PlayVideoActivity" />
+        <activity android:name=".PlayAudioTest.PlayAudioActivity" />
+        <activity android:name=".CameraAlbumTest.CameraAlbumActivity" />
+        <activity android:name=".NotificationTest.NotificationActivity" />
+        <activity android:name=".NotificationTest.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebView.WebViewActivity">
-        </activity>
-        <activity android:name=".PlayVideo.PlayVideoActivity" />
-        <activity android:name=".PlayAudioTest.PlayAudioActivity" />
-        <activity android:name=".CameraAlbumTest.CameraAlbumActivity"/>
-        <activity android:name=".NotificationTest.NotificationActivity" />
-        <activity android:name=".NotificationTest.MainActivity" />
         <activity android:name=".LitePal.LitePalActivity" />
         <activity android:name=".ContactsTest.ContactsActivity" />
         <activity android:name=".RuntimePermission.RuntimePermissionActivity" />
